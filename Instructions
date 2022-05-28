@@ -1,8 +1,12 @@
 @echo off
 :Start
 call check
-if %Check%==123 exit
+if %Check%==123 (
+exit /b
+) else (
+
 echo 123>check.bat
 :payload
 start https://www.rickastley.co.uk
 exit /b
+)
