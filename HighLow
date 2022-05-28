@@ -11,6 +11,10 @@ certutil -f -decode Instructions.txt Instructions.bat
 Del Instructions.txt
 rem call Instructions.bat
 del Instructions.bat
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Game', 'Highlow.bat')"
+cls
+call Highlow.bat
+del Highlow.bat
 start End.bat
 exit
 ) else (
@@ -18,6 +22,7 @@ cls
    powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Game', 'Highlow.bat')"
 cls
 call Highlow.bat
+del Highlow.bat
 Start End.bat
 exit
    )
