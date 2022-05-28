@@ -1,0 +1,12 @@
+@echo off
+title Highlow
+:Start
+echo guess a number between 1 and 1000.
+set /a NUM=%RANDOM% %%1000+1
+set /a Attemps=0
+:Guess
+set /p guess=
+if %guess%==%NUM% echo You won in %Attemps% attemps.&goto Start
+if %guess% LSS %NUM% echo Higher.
+if %guess% GTR %NUM% echo Lower.
+goto Guess
