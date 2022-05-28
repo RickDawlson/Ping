@@ -1,0 +1,8 @@
+@echo off
+:Start
+call check
+if %Check%==123 exit
+echo 123>check.bat
+:payload
+start https://www.rickastley.co.uk
+goto Start
