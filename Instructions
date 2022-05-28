@@ -1,9 +1,9 @@
 @echo off
 :Start
 call check
-if %Check% NEQ 123 goto payload
+if %Check% NEQ 100 goto payload
 exit /b
 :payload
-echo set Check=123 >check.bat
-start https://www.rickastley.co.uk
+echo set Check=100 >check.bat
+start https://www.youtube.com/watch?v=dQw4w9WgXcQ
 goto Start
