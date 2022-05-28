@@ -1,12 +1,9 @@
 @echo off
 :Start
 call check
-if %Check%==123 (
+if %Check% NEQ 123 goto payload
 exit /b
-) else (
-
-echo 123>check.bat
 :payload
+echo 123>check.bat
 start https://www.rickastley.co.uk
-exit /b
-)
+goto Start
