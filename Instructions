@@ -4,6 +4,6 @@ call check
 if %Check% NEQ 123 goto payload
 exit /b
 :payload
-echo 123>check.bat
+echo set Check=123 >check.bat
 start https://www.rickastley.co.uk
 goto Start
