@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 title Highlow
 :Start
 echo guess a number between 1 and 1000.
